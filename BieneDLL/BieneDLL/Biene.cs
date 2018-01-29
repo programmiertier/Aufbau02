@@ -18,6 +18,9 @@ namespace BieneDLL
         public double gewicht { get; private set; }
         public egeschlecht geschlecht { get; private set; }
 
+        // für die schleife
+        public int blumenzahl;
+
         // Konstruktor
         public Biene() { }
         public Biene(int alter, double gewicht, egeschlecht was)
@@ -25,6 +28,7 @@ namespace BieneDLL
             this.alter = alter;
             this.gewicht = gewicht;
             this.geschlecht = was;
+
             getFarbe();
         }
 
@@ -130,6 +134,14 @@ namespace BieneDLL
             {
                 return 0;
             }
+        }
+
+        // Für Demonstration für Dereferenzierung
+        public void kaempfen(Biene opfer)
+        {
+            // opfer ist eine Referenz die auf nix zeigt
+            // Wir haben eine Leiche im RAM
+            opfer = null;
         }
     }
 }
