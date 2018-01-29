@@ -11,15 +11,18 @@ namespace Bibo_Teich
         public string name { get; private set; }
         private int _beine = 6;
         private int _fluegel = 2;
+        public bool lebendig { get; private set; }
 
-        public Fliege(string name)
+        public Fliege(int beine, int fluegel)
         {
-            this.name = name;
+            this._beine = beine;
+            this._fluegel = fluegel;
+            this.lebendig = true;
         }
 
-        internal String wirdGefuttert()
+        internal void wirdGefuttert()
         {
-            return name + " vom Frosch gefuttert!";
+            this.lebendig = false;
         }
     }
 }

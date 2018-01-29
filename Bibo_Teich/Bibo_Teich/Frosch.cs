@@ -11,9 +11,10 @@ namespace Bibo_Teich
         private static string _quak = "quak quak";
 
         public string name { get; private set; }
-        private int beine = 2;
+        public const int beine = 2;
         public int maxalter { get; private set; }
         public int alter { get; private set; }
+        public bool lebendig { get; private set; }
         public ehunger hunger { get; private set; }
         public enum ehunger
         {
@@ -27,26 +28,27 @@ namespace Bibo_Teich
             this.maxalter = maxalter;
             this.alter = alter;
             this.hunger = hunger;
+            this.lebendig = true;
             sagWas();
         }
 
         public string feiernGeburtstag()
         {
-            // double aelterwerden = alter++;
+            this.alter++;
             if (this.alter == maxalter)
             {
+                this.lebendig = false;
                 return "ich bin tot";
             }
             else
             {
-                this.alter++;
                 return "Yay, ein Jahr älter";
             }
         }
 
         public string huepfen(double strecke)
         {
-            // pro 100m 1g weniger
+            
             return "Ich bin " + strecke + " gehüpft";
         }
 
@@ -57,8 +59,31 @@ namespace Bibo_Teich
 
         public String geheFuttern(Fliege welche)
         {
-            String result = welche.wirdGefuttert();
-            return "Auftrag ausgeführt. Fliege " + result + "ist gegessen";
+            welche.wirdGefuttert();
+            
+            return "Auftrag ausgeführt. Fliege ist gegessen";
+        }
+
+        public override int GetHashCode()
+        {
+            return this.name.Length;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is Frosch)
+            {
+                Frosch vergleich = (Frosch)obj;
+                if (this.alter == vergleich.alter && this.maxalter == vergleich.maxalter)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            return false;
         }
 
 
