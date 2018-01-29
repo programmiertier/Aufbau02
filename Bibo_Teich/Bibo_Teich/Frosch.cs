@@ -86,6 +86,13 @@ namespace Bibo_Teich
             return false;
         }
 
+        public void getoetet(ref Fliege opfer)
+        {
+            // opfer ist eine Referenz die auf nix zeigt
+            // Wir haben eine Leiche im RAM
+            opfer = null;
+        }
+
 
     }
 }
