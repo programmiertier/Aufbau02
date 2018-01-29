@@ -20,7 +20,7 @@ namespace DieBiene
             WriteLine(summ.gewicht);
             WriteLine(summ.geschlecht);
 
-            String result = summ.fliegen(450);
+            /* String result = summ.fliegen(450);
             WriteLine(result);
             WriteLine(summ.gewicht);
 
@@ -30,7 +30,7 @@ namespace DieBiene
 
             Blume pinkeRose = new Blume("pink", "Rose");
             result = summ.gehbestaeuben(pinkeRose);
-            WriteLine(result);
+            WriteLine(result);  */
 
             WriteLine(summ);
             WriteLine("-----");
@@ -63,6 +63,7 @@ namespace DieBiene
             {
                 WriteLine("Summ und SummTwin sich unterschiedlich");
             }
+
             ReadLine();
         }
     }

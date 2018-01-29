@@ -99,5 +99,22 @@ namespace BieneDLL
         {
             return alter + "|" + gewicht + "|" + geschlecht + "|" + _farbe;
         }
+
+        // aus der Oberklasse für den Verlgiech von Objekten
+        // wir überschreiben die Basisimplementierung
+        public override bool Equals(object obj)
+        {
+            // ACHTUNG: casting ohne Prüfung!
+            Biene vergleich = (Biene)obj;
+
+            WriteLine(this);
+            WriteLine(vergleich);
+            if (this.alter == vergleich.alter && this.geschlecht == vergleich.geschlecht)
+            {
+                WriteLine("RICHTIG");
+                return true;
+            }
+            return false;
+        }
     }
 }
