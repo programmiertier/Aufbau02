@@ -137,7 +137,8 @@ namespace BieneDLL
         }
 
         // Für Demonstration für Dereferenzierung
-        public void kaempfen(Biene opfer)
+        // es muss die originalreferenz
+        public void kaempfen(ref Biene opfer)
         {
             // opfer ist eine Referenz die auf nix zeigt
             // Wir haben eine Leiche im RAM

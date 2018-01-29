@@ -91,12 +91,12 @@ namespace DieBiene
             
             Biene maja = new Biene(2, 15, Biene.egeschlecht.weiblich);
             // Achtung! call-by-value VS call-by-reference
-            ninja.kaempfen(maja);
+            ninja.kaempfen(ref maja);
 
-            
+            // Maja muss weg!
             if (maja == null)
             {
-                WriteLine("Maja ist tot");
+                WriteLine("Maja ist tot Jim!");
             }
             else
             {
