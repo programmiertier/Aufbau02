@@ -116,5 +116,20 @@ namespace BieneDLL
             }
             return false;
         }
+
+        // wenn Equals überschrieben wird, sollte auch HashCode überschrieben werden
+        // darauf achten, dass hier Eigenschaften verändert werden, die nicht verändert werden
+        // bei der Biene... wird das Geschlecht aber verändert... mah
+        public override int GetHashCode()
+        {
+            if (this.geschlecht == egeschlecht.weiblich)
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
     }
 }
