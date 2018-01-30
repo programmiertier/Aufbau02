@@ -12,9 +12,9 @@ namespace Bücherliste
         static void Main(string[] args)
         {
             List<Buch> liste = new List<Buch>();
-            liste.Add(new Buch("Hein Heinrich", "Was ist das denn", 10000, 40));
-            liste.Add(new Buch("Paul Paulchen", "da schau her", 6000, 25.99));
-            liste.Add(new Buch("Karl Karlsen", "jajaja", 12000, 52.99));
+            liste.Add(new Buch("Zulu", "Was ist das denn", 10000, 40));
+            liste.Add(new Buch("Alpha", "da schau her", 6000, 25.99));
+            liste.Add(new Buch("Oskar", "jajaja", 12000, 52.99));
 
             // ausgabe aller Bücher auf der Liste
             for (int zaehl = 0; zaehl < liste.Count; zaehl++)
