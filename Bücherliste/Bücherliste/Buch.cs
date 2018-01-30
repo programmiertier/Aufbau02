@@ -41,5 +41,10 @@ namespace Bücherliste
         {
             return this.autor.Length;
         }
+
+        public override string ToString()
+        {
+            return this.autor + "|" + this.titel + "|" + this.auflage + "|" + this.preis;
+        }
     }
 }
