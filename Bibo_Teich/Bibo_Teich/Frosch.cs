@@ -16,6 +16,7 @@ namespace Bibo_Teich
         public int alter { get; private set; }
         public bool lebendig { get; private set; }
         public ehunger hunger { get; private set; }
+        public bool hungrig { get; private set; }
         public enum ehunger
         {
             satt, hungrig
@@ -28,6 +29,15 @@ namespace Bibo_Teich
             this.maxalter = maxalter;
             this.alter = alter;
             this.hunger = hunger;
+            this.lebendig = true;
+            sagWas();
+        }
+
+        public Frosch(string name, int alter, int maxalter)
+        {
+            this.name = name;
+            this.maxalter = maxalter;
+            this.alter = alter;
             this.lebendig = true;
             sagWas();
         }
@@ -57,11 +67,13 @@ namespace Bibo_Teich
             return _quak;
         }
 
+
         public String geheFuttern(Fliege welche)
         {
             welche.wirdGefuttert();
-            
-            return "Auftrag ausgeführt. Fliege ist gegessen";
+            welche = null;
+            this.hungrig = false;
+            return "Fliege vertilgt";
         }
 
         public override int GetHashCode()
