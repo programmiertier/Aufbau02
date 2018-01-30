@@ -15,6 +15,10 @@ namespace Bücherliste
             liste.Add(new Buch("Zulu", "Was ist das denn", 10000, 40));
             liste.Add(new Buch("Alpha", "da schau her", 6000, 25.99));
             liste.Add(new Buch("Oskar", "jajaja", 12000, 52.99));
+            liste.Add(new Buch("Berta", "da schau her", 33000, 77.99));
+            liste.Add(new Buch("Dora", "da", 16000, 38.99));
+            liste.Add(new Buch("Gustav", "schau her", 20000, 39.99));
+            liste.Add(new Buch("Unicorn", "schau", 17000, 99.99));
 
             // ausgabe aller Bücher auf der Liste
             for (int zaehl = 0; zaehl < liste.Count; zaehl++)
@@ -80,6 +84,48 @@ namespace Bücherliste
             {
                 WriteLine(b);
             }
+            WriteLine("-----");
+            ReadLine();
+
+            // Die Methode Sort() hat eine Überladung
+            // Parameter: Objekt vom Typ IComparer<>
+
+            // zeigt Liste aufsteigend an... wenn absteigend, x und y tauschen
+            liste.Sort(new BuchVergleich());
+            foreach (Buch b in liste)
+            {
+                WriteLine(b);
+            }
+            WriteLine("***");
+            ReadLine();
+
+            // alle Bücher, deren Preis größer 34.99 ist
+            foreach (Buch b in liste)
+            {
+                if (b.preis > 34.99)
+                {
+                    WriteLine(b);
+                }
+            }
+            WriteLine("-----");
+            ReadLine();
+
+            foreach (Buch bu in liste.FindAll(b => b.preis > 34.99))
+            {
+                WriteLine(bu);
+            }
+            WriteLine("-----");
+            ReadLine();
+
+            // Binäre Suche nach einem Buch
+            // Verlgeich auf Gleichheit mit Equals
+            // Wichtig! bei Verwendung von BinarySearch vorher soriteren
+
+            // wenn Gleichheit bei Autor, dann Sortieren aufsteigend nach Autor
+            liste.Sort();
+            int index = liste.BinarySearch(new Buch("Unicorn", "schau", 17000, 99.99));
+
+            WriteLine(index);
             WriteLine("-----");
             ReadLine();
         }
