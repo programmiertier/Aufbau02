@@ -70,6 +70,18 @@ namespace Bücherliste
             WriteLine("Anzahl nach Remove:" + liste.Count);
             WriteLine("-----");
             ReadLine();
+            // Sortieren der Liste
+            // Achtung InvalidOperationException
+            // Objekte auf der Liste bzw deren Klasse muss das Interface IComparable implementieren
+            // Interface hat Methode CompareTo, die von Sort() verwandt wird
+            // Sort() verlangt eine Liste mit Objekten vom Typ IComparable
+            liste.Sort();
+            foreach(Buch b in liste)
+            {
+                WriteLine(b);
+            }
+            WriteLine("-----");
+            ReadLine();
         }
     }
 }

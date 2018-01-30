@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Bücherliste
 {
-    class Buch
+    // das Buch implementiert das generische Interface IComparable<Buch> - gibt an, dass Objekte der Klasse Buch verglichen werden
+    class Buch : IComparable<Buch>
     {
         public String autor { get; private set; }
         public String titel { get; private set; }
@@ -45,6 +46,12 @@ namespace Bücherliste
         public override string ToString()
         {
             return this.autor + " | " + this.titel + " | " + this.auflage + " | " + this.preis;
+        }
+
+        // das ist der Standardvergleich
+        public int CompareTo(Buch other)
+        {
+            return this.autor.CompareTo(other.autor);
         }
     }
 }
