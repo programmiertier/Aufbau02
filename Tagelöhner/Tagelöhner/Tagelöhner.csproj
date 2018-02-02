@@ -46,6 +46,7 @@
     <Compile Include="Aufgaben.cs" />
     <Compile Include="Bäcker.cs" />
     <Compile Include="Dachdecker.cs" />
+    <Compile Include="Praktikant.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tagelöhner.cs" />
