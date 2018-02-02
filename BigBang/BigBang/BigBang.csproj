@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DelSchalter.cs" />
     <Compile Include="Element.cs" />
     <Compile Include="Licht.cs" />
     <Compile Include="Program.cs" />
