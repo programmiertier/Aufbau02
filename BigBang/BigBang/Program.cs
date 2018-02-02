@@ -29,6 +29,22 @@ namespace BigBang
             Spinne spinne = new Spinne();
             otherButton.methodEin += spinne.einschalten;
 
+            // ich kann jede Methode hinzufügen, diese muss nicht in einer bestimmten Klasse stehen
+            // es kann sich um Objektmethoden oder auch Klassenmethoden handeln
+            otherButton.methodEin += tanzen;
+
+            // man kann auch mit lambda expressions arbeiten
+            // in der Klasse List<> ist bei FindAll hinterlegt, ein Delegate --> es ist eine Methode
+            // die ein Objekt entgegen nimmt (a) und einen bool-Wert zurück gibt (Vergleich: nummer)
+            // liste.FindAll(a => a.ArtNr == nummer (Aus der Artikelliste vom 01.02.2018)
+
+
+            // wir brauchen keine Methode mehr zu definieren in Klassen, sondern erstellen diese on-the-fly und weisen gleich zu
+            // () -- ist der Übergabeparameter (der Delegate sein, es gibt keine)
+            // => hier steht, was gemacht werden soll (Der Dlegate sagt void)
+
+            otherButton.methodEin += () => WriteLine("Es regnet Blut!");
+
             // wenn mehrere Methoden ausgeführt werden sollen, werden diese mit += zusammengefasst
             otherButton.methodAus += meinLicht.ausschalten;
             otherButton.methodAus += spinne.ausschalten;
@@ -40,6 +56,11 @@ namespace BigBang
 
             WriteLine("-----");
             ReadLine();
+        }
+
+        public static void tanzen()
+        {
+            WriteLine("peinliches tanzen hier einsetzen");
         }
     }
 }
