@@ -10,27 +10,27 @@ namespace Drucker
     class Drucker
     {
 
-        public Queue<Druckauftrag> auftrag { get; private set; }
+        public Queue<Druckauftrag> pool { get; private set; }
 
         public int gesamtzeit { get; private set; }
 
         public void hinzufügen(Druckauftrag druckauf)
         {
-            auftrag.Enqueue(druckauf);
+            pool.Enqueue(druckauf);
         }
 
         public Drucker()
         {
-            auftrag = new Queue<Druckauftrag>();
+            pool = new Queue<Druckauftrag>();
             gesamtzeit = 0;
         }
 
         public void drucken()
         {
             Druckauftrag a = null;
-            while (auftrag.Count > 0)
+            while (pool.Count > 0)
             {
-                a = auftrag.Dequeue();
+                a = pool.Dequeue();
                 WriteLine("Drucke " + a.beschreibung);
                 gesamtzeit += a.zeit;
             }
