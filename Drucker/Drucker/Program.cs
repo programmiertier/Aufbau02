@@ -23,8 +23,6 @@ namespace Drucker
         static void variante1()
         {
             Variante01 v1 = new Variante01();
-
-
             // die beiden Methoden aus v1 müssen parallel ausgeführt werden
             // diese Methode thread01() hat eine Schleife, hier wird ruch den Nutzer etwas gemacht
             // nicht der Nutzer bestimmt, wann die Schleife vorbei ist, sondern jemand anderes

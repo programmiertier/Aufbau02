@@ -19,13 +19,13 @@ namespace Drucker
         public void thread01()
         {
             String zeile;
-            do
+            // während nicht over
+            while (!isOver)        // wann isOver == true ist, bestimmt Chef nicht Arbeiter
             {
                 // steht für die Arbeitsaufgabe, die wiederholt gemacht werden soll
                 zeile = ReadLine();
             }
-            // während nicht over
-            while (!isOver);        // wann isOver == true ist, bestimmt Chef nicht Arbeiter
+            
             WriteLine("Is Over");
         }
 
