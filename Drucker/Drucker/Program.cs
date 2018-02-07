@@ -17,7 +17,31 @@ namespace Drucker
             WriteLine("-----");
             ablauf02(); */
             // variante1();
-            ReadLine();
+            variante2();
+            WriteLine("-----");
+        }
+
+        static void variante2()
+        {
+            // wir erstellen die gemeinsam zu nutzende Ressource
+            Queue<Druckauftrag> pool = new Queue<Druckauftrag>();
+
+            // wir weisen diese Ressource einem Drucker zu
+            Drucker print = new Drucker(pool);
+
+            // wir weisen die gleiche Ressource dem Arbeiter (Variante2) zu
+            Variante02 arbeiter = new Variante02(pool);
+
+
+            // wir erstellen zwei Threads
+            // die Methode zum erstellen von Aufträgen und zum Drucken von diesen sollen
+            // parallel ablaufen
+            Thread t1 = new Thread(arbeiter.generierenAufträge);
+            Thread t2 = new Thread(print.drucken);
+
+            t1.Start();
+            t2.Start();
+
         }
 
         static void variante1()

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Console;
+using System.Threading;
 
 namespace Drucker
 {
@@ -40,6 +41,9 @@ namespace Drucker
                 a = pool.Dequeue();
                 WriteLine("Drucke " + a.beschreibung);
                 gesamtzeit += a.zeit;
+
+                // etwas warten, bevor die Bedinung der Schleife erneut geprüft wird
+                Thread.Sleep(1000);
             }
         }
     }
