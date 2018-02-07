@@ -4,20 +4,41 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Console;
+using System.Threading;
 
 namespace Drucker
 {
     class Program
     {
+
         static void Main(string[] args)
         {
-            ablauf01();
+            /* ablauf01();
             WriteLine("-----");
-            ablauf02();
+            ablauf02(); */
+            variante1();
             ReadLine();
         }
 
-        // wir geben Druckaufträge ein
+        static void variante1()
+        {
+            Variante01 v1 = new Variante01();
+
+
+            // die beiden Methoden aus v1 müssen parallel ausgeführt werden
+            // diese Methode thread01() hat eine Schleife, hier wird ruch den Nutzer etwas gemacht
+            // nicht der Nutzer bestimmt, wann die Schleife vorbei ist, sondern jemand anderes
+            Thread t1 = new Thread(v1.thread01);
+
+            // diese Methode ändert den Wert einer Variablen, die bestimmt, wie oft die Schleife
+            // aus der anderen Methode ausgeführt wird
+            Thread t2 = new Thread(v1.thread01_clock);
+
+            // ob jetzt t1 oder t2 zuerst, ist egal. ist alles in einem pool!
+            t1.Start();
+            t2.Start();
+        }
+
         
 
         static void ablauf01()
