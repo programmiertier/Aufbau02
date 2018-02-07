@@ -35,16 +35,19 @@ namespace Drucker
         {
             Druckauftrag a = null;
             // es wird mit der gemeinsamen Ressource gearbeiten
-            while (pool.Count > 0)
-            {
-                // ein Auftrag wird der gemeinsamen Ressource entnommen
-                a = pool.Dequeue();
-                WriteLine("Drucke " + a.beschreibung);
-                gesamtzeit += a.zeit;
+            // lock (pool)
+            // {
+                while (pool.Count > 0)
+                {
+                    // ein Auftrag wird der gemeinsamen Ressource entnommen
+                    a = pool.Dequeue();
+                    WriteLine("Drucke " + a.beschreibung);
+                    gesamtzeit += a.zeit;
 
-                // etwas warten, bevor die Bedinung der Schleife erneut geprüft wird
-                Thread.Sleep(1000);
-            }
+                    // etwas warten, bevor die Bedinung der Schleife erneut geprüft wird
+                    Thread.Sleep(1000);
+                }
+            // }
         }
     }
 }
