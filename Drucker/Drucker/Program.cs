@@ -16,7 +16,7 @@ namespace Drucker
             /* ablauf01();
             WriteLine("-----");
             ablauf02(); */
-            variante1();
+            // variante1();
             ReadLine();
         }
 
@@ -41,7 +41,7 @@ namespace Drucker
 
         static void ablauf01()
         {
-            Drucker d = new Drucker();
+            Drucker d = new Drucker(null);
             d.hinzufügen(new Druckauftrag("Schaukelpferd", 34));
             d.hinzufügen(new Druckauftrag("Bömmel", 10));
             d.hinzufügen(new Druckauftrag("Kaffeebohne", 42));
@@ -54,7 +54,7 @@ namespace Drucker
 
         static void ablauf02()
         {
-            Drucker d = new Drucker();
+            Drucker d = new Drucker(null);
             Random rnd = new Random();
             String was = null;
 
@@ -64,6 +64,7 @@ namespace Drucker
                 was = ReadLine();
                 if (was.Length > 0)
                 {
+                                                    // bereich zwischen 30 und 60
                     d.hinzufügen(new Druckauftrag(was, rnd.Next(30, 60)));
                 }
             }
