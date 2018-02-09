@@ -38,8 +38,10 @@ namespace TestDB
             //Abfrage, wie viele Einträge in Tabelle verkauf vorhanden sind
             MySqlCommand comm = new MySqlCommand("select count(*) from verkauf", conn);
 
-            Console.WriteLine(comm.ExecuteScalar());
+            Console.WriteLine("select count(*) from verkauf, gibt einen Wert von " + comm.ExecuteScalar() + " zurück");
             conn.Close();
+
+            Console.ReadLine();
         }
     }
 }
