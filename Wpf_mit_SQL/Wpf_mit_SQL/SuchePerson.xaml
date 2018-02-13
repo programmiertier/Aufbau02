@@ -1,0 +1,31 @@
+﻿<Window x:Class="Wpf_mit_SQL.SuchePerson"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf_mit_SQL"
+        mc:Ignorable="d"
+        Title="SuchePerson" Height="300" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="40*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40*"/>
+            <ColumnDefinition Width="60*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Content="Nummer" Grid.Row="0" Grid.Column="0" />
+        <Label Content="Nachname" Grid.Row="1" Grid.Column="0" />
+        <Label Content="Vorname" Grid.Row="2" Grid.Column="0" />
+        <TextBox Name="txtNummer" Grid.Row="0" Grid.Column="1" />
+        <TextBox Name="txtNachname" Grid.Row="1" Grid.Column="1" />
+        <TextBox Name="txtVorname" Grid.Row="2" Grid.Column="1" />
+        <Label Name="result" Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="0" VerticalAlignment="top" Height="30" />
+        <Button Name="btnSave" Grid.Row="3" Grid.Column="0" VerticalAlignment="Bottom" Content="speichern" Click="btnSave_Click" />
+        <Button Name="btnCLose" Grid.Row="3" Grid.Column="2" VerticalAlignment="Bottom" Content="schließen" HorizontalAlignment="Right" Click="btnCLose_Click" />
+    </Grid>
+</Window>
