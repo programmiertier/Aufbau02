@@ -90,9 +90,17 @@ namespace PreparedStatements
             // ausführt
             wort = ";select * from prepstmt;";
             sql = "insert into prepstmt (wort) values ('" + wort + "')";
+            prepare = "insert into prepstmt (wort) values (@wort)";
+            comm = new MySqlCommand(prepare, conn);
+            paramet = new MySqlParameter("@wort", MySqlDbType.String, 100);
+            paramet.Value = wort;
+            comm.Parameters.Add(paramet);
+            comm.Prepare();
 
+            comm.ExecuteNonQuery();
             WriteLine(sql);
 
+            
             
             ReadLine();
         }
