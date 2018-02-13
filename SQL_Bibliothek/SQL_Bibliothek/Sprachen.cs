@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace Sprachqualifikation
+namespace SQL_Bibliothek
 {
-    class Sprachen
+    public class Sprachen
     {
         public String sprache;
-
         public int grad;
     }
 }
