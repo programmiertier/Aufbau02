@@ -82,6 +82,15 @@ namespace PreparedStatements
             // zusammenbau der Zeichenkette
             sql = "insert into prepstmt (wort) values ('" + wort + "')";
 
+            comm = new MySqlCommand(sql, conn);
+            comm.ExecuteNonQuery();
+
+            // SQL-Injection
+            // in eine sql-Anweisung wird eine zeichenkette eingeschleust, die noch eine sql-Anweisung
+            // ausführt
+            wort = ";select * from prepstmt;";
+            sql = "insert into prepstmt (wort) values ('" + wort + "')";
+
             WriteLine(sql);
 
             
