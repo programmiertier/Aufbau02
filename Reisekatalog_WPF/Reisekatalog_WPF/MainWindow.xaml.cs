@@ -48,5 +48,18 @@ namespace Reisekatalog_WPF
             liste2.Items.Clear();
             liste2.Items.Add(new Katalog().getZiele()[index].ort);
         }
+
+        private void liste1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // index der Liste
+            int index = liste1.SelectedIndex;
+
+            // zugehöriges Reiseziel suchen
+            Reiseziel rz = new Katalog().getZiele()[index];
+
+            // Fenster aufrufen
+            AnzeigeHotels ah = new AnzeigeHotels(rz.land, rz.ort);
+            ah.ShowDialog();
+        }
     }
 }

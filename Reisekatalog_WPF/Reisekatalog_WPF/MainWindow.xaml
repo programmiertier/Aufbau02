@@ -15,13 +15,13 @@
         <Label Content="Alle Reiseziele" Grid.Column="0" Height="30" VerticalAlignment="Top" />
         <!-- wir legen fest, dass die anzuzeigenden Daten, von der Datenquelle kommen, an die das Fenster gebunden wurde-->
         <!-- eine Eigenschaft wird an eine Ressource gebunden-->
-        <ListBox Name="liste1" Grid.Column="0" Height="275" VerticalAlignment="Bottom" ItemsSource="{Binding}">
+        <ListBox Name="liste1" Grid.Column="0" Height="275" VerticalAlignment="Bottom" ItemsSource="{Binding}" SelectionChanged="liste1_SelectionChanged">
             <!-- wir legen fest, wie ein Item in der ListBox aufgebaut werden soll-->
             <ListBox.ItemTemplate>
                 <!-- die Daten eines Objektes werdren nun auf verschiedene Elemente aufgeteilt -->
                 <DataTemplate>
                     <StackPanel Orientation="Vertical">
-                        <Label FontSize="15" FontWeight="bold" Content="{Binding land}" />
+                        <Label Name="btnland" FontSize="15" FontWeight="bold" Content="{Binding land}" />
                         <Label Content="{Binding ort}" />
                     </StackPanel>
                 </DataTemplate>
