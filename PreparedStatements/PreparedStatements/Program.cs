@@ -89,6 +89,7 @@ namespace PreparedStatements
             // in eine sql-Anweisung wird eine zeichenkette eingeschleust, die noch eine sql-Anweisung
             // ausführt
             wort = ";select * from prepstmt;";
+            //bis zum ; die Anweisung ist falsch , aber danach die wird ausgeführt 
             sql = "insert into prepstmt (wort) values ('" + wort + "')";
             prepare = "insert into prepstmt (wort) values (@wort)";
             comm = new MySqlCommand(prepare, conn);

@@ -1,0 +1,44 @@
+﻿<Window x:Class="Reisekatalog_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Reisekatalog_WPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*" />
+            <ColumnDefinition Width="50*" />
+        </Grid.ColumnDefinitions>
+        <!-- linke Seite -->
+        <Label Content="Alle Reiseziele" Grid.Column="0" Height="30" VerticalAlignment="Top" />
+        <!-- wir legen fest, dass die anzuzeigenden Daten, von der Datenquelle kommen, an die das Fenster gebunden wurde-->
+        <!-- eine Eigenschaft wird an eine Ressource gebunden-->
+        <ListBox Name="liste1" Grid.Column="0" Height="275" VerticalAlignment="Bottom" ItemsSource="{Binding}">
+            <!-- wir legen fest, wie ein Item in der ListBox aufgebaut werden soll-->
+            <ListBox.ItemTemplate>
+                <!-- die Daten eines Objektes werdren nun auf verschiedene Elemente aufgeteilt -->
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical">
+                        <Label FontSize="15" FontWeight="bold" Content="{Binding land}" />
+                        <Label Content="{Binding ort}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        
+        <!--rechte Seite-->
+        <Label Grid.Column="1" Content="Orte nach Reiseziel anzeigen" Height="30" VerticalAlignment="Top" />
+        <ComboBox Grid.Column="1" Name="cmbZiel" ItemsSource="{Binding}" Height="40" Margin="0,35,0,230" SelectionChanged="cmbZiel_SelectionChanged">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding land}" />
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <ListBox Grid.Column="1" Name="liste2" Margin="0,80,0,0">
+            
+        </ListBox>
+    </Grid>
+</Window>
