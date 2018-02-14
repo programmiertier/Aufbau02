@@ -35,7 +35,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="SQL_Bibliothek">
-      <HintPath>..\..\SQL_Bibliothek\SQL_Bibliothek\bin\Debug\netstandard2.0\SQL_Bibliothek.dll</HintPath>
+      <HintPath>..\..\SQL_Bibliothek\SQL_Bibliothek\bin\Debug\SQL_Bibliothek.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

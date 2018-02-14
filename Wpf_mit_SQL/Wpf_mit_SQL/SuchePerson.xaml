@@ -18,14 +18,11 @@
             <ColumnDefinition Width="60*"/>
         </Grid.ColumnDefinitions>
 
-        <Label Content="Nummer" Grid.Row="0" Grid.Column="0" />
-        <Label Content="Nachname" Grid.Row="1" Grid.Column="0" />
-        <Label Content="Vorname" Grid.Row="2" Grid.Column="0" />
-        <TextBox Name="txtNummer" Grid.Row="0" Grid.Column="1" />
-        <TextBox Name="txtNachname" Grid.Row="1" Grid.Column="1" />
-        <TextBox Name="txtVorname" Grid.Row="2" Grid.Column="1" />
-        <Label Name="result" Grid.Row="3" Grid.ColumnSpan="2" Grid.Column="0" VerticalAlignment="top" Height="30" />
-        <Button Name="btnSave" Grid.Row="3" Grid.Column="0" VerticalAlignment="Bottom" Content="speichern" Click="btnSave_Click" />
-        <Button Name="btnCLose" Grid.Row="3" Grid.Column="2" VerticalAlignment="Bottom" Content="schließen" HorizontalAlignment="Right" Click="btnCLose_Click" />
+        <Label Content="Nummer zur Suche" Grid.Row="0" Grid.Column="0" />
+        <ComboBox Name="cmbNummer" Grid.Row="1" Grid.Column="0" SelectionChanged="cmbNummer_SelectionChanged"/>
+        <Label Content="persName" Name="persName" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" FontSize="18" />
+        <Label Content="Sprachen" Grid.Row="2" Grid.Column="0" />
+        <ListBox Name="liste" Grid.Row="2" Grid.Column="1" />
+        <Button Name="close" Grid.Row="3" Grid.Column="3" VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="OK" Click="close_Click"/>
     </Grid>
 </Window>

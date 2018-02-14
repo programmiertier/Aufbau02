@@ -24,9 +24,9 @@
         <TextBox Name="txtNummer" Grid.Row="0" Grid.Column="1" />
         <TextBox Name="txtNachname" Grid.Row="1" Grid.Column="1" />
         <TextBox Name="txtVorname" Grid.Row="2" Grid.Column="1" />
-        <Button Grid.Row="3" Grid.Column="0" Name="knpfVor" Content="vor" Click="knpfVor_Click"/>
-        <Button Grid.Row="3" Grid.Column="0" Name="knpfZurueck" Content="Neue Person" Click="knpfZurueck_Click"/>
-        <Button Grid.Row="3" Grid.Column="1" Name="knpfClose" Content="Suche Person" Click="knpfClose_Click"/>
+        <Button Grid.Row="3" Grid.Column="0" Name="knpfVor" Height="20" VerticalAlignment="Center" Content="vor" Click="knpfVor_Click"/>
+        <Button Grid.Row="3" Grid.Column="0" Name="knpfZurueck" Height="20" VerticalAlignment="Bottom" Content="Neue Person" Click="knpfZurueck_Click"/>
+        <Button Grid.Row="3" Grid.Column="1" Name="knpfClose" Content="Ok" Click="knpfClose_Click"/>
 
     </Grid>
 </Window>

@@ -43,6 +43,7 @@ namespace Wpf_mit_SQL
         private void knpfSuche_Click(object sender, RoutedEventArgs e)
         {
             // hier soll ein neues Fenster geöffnet werden
+            new SuchePerson().ShowDialog();
         }
     }
 }

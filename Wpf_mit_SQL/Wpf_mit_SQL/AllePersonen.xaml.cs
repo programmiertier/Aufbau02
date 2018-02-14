@@ -20,18 +20,24 @@ namespace Wpf_mit_SQL
     /// </summary>
     public partial class AllePersonen : Window
     {
+        Person[] personen;
+        int index = 0;
         public AllePersonen()
         {
             InitializeComponent();
-            AbfragePool pool = new AbfragePool();
-            Person[] personen = pool.getGesamt();
+            personen = new AbfragePool().getPersonen();
+
+            // erste Person anzeigen
+            txtNummer.Text = personen[0].persNr;
+            txtNachname.Text = personen[0].name;
+            txtVorname.Text = personen[0].vorname;
         }
 
         private void knpfVor_Click(object sender, RoutedEventArgs e)
         {
-            if (indexer < personen.Length - 1)
+            if (index < personen.Length - 1)
             {
-                indexer++;
+                index++;
                 txtNummer.Text = personen[index].persNr;
                 txtNachname.Text = personen[index].name;
                 txtVorname.Text = personen[index].vorname;
@@ -40,12 +46,18 @@ namespace Wpf_mit_SQL
 
         private void knpfZurueck_Click(object sender, RoutedEventArgs e)
         {
-
+            if (index > 0)
+            {
+                index--;
+                txtNummer.Text = personen[index].persNr;
+                txtNachname.Text = personen[index].name;
+                txtVorname.Text = personen[index].vorname;
+            }
         }
 
         private void knpfClose_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
     }
 }
