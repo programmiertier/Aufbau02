@@ -23,6 +23,12 @@ namespace WPF_Pizzalieferung
     {
         public MainWindow()
         {
+            Lieferdienst ldf = new Lieferdienst();
+            ldf.bestellen(new Pizza { size = "klein", belag = new String[] { "Salami", "Käse" }.ToList(), fertig = true });
+            ldf.bestellen(new Pizza { size = "groß", belag = new String[] { "Schinken", "Käse" }.ToList(), fertig = false });
+            ldf.bestellen(new Pizza { size = "mittel", belag = new String[] { "Peperoni", "Käse" }.ToList(), fertig = true });
+
+            this.DataContext = ldf.getAlle();
             InitializeComponent();
         }
 

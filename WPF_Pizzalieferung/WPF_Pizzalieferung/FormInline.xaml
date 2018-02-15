@@ -37,20 +37,23 @@
         <CheckBox Name="chk2" Content="Hawaii" Grid.Row="1" HorizontalAlignment="Center" Margin="109,42,117,10" Grid.RowSpan="2" />
 
         <TextBox Name="txtZusatz" Grid.Row="2" Margin="10,5,10,5" />
-        <Button Name="OK" Content="bestellen" Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Bottom" >
+        <Button Name="OK" Content="bestellen" Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Bottom" Click="OK_Click">
             <Button.Style>
-
                 <Style>
+                    <Setter Property="Button.Width" Value="100" />
                     <Style.Triggers>
-                        <Trigger Property="Button.IsMouseOver" Value="True">
-                            <Setter Property="Button.FontWeight" Value="Bold" />
-                        </Trigger>
+                        <EventTrigger RoutedEvent="Button.Click">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Duration="0:0:5" Storyboard.TargetProperty="Width" To="200" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
                     </Style.Triggers>
-                    <Setter Property="Button.Foreground" Value="Red" />
                 </Style>
-
             </Button.Style>
-
         </Button>
     </Grid>
 </Window>

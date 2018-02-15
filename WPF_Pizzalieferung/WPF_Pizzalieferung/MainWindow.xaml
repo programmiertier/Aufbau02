@@ -15,7 +15,30 @@
             <ColumnDefinition Width="40*" />
 
         </Grid.ColumnDefinitions>
-        <ListBox Name="lstBestellung" Grid.Column="0" />
+        <ListBox Name="lstBestellung" Grid.Column="0" ItemsSource="{Binding}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel HorizontalAlignment="Stretch">
+                        <StackPanel.Style>
+                            <Style>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding fertig}" Value="true">
+                                        <Setter Property="StackPanel.Background" Value="Green" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding fertig}" Value="false">
+                                        <Setter Property="StackPanel.Background" Value="Red" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </StackPanel.Style>
+                        <Label Content="{Binding size}" />
+                        <Label Content="{Binding belag}" />
+                        <Label Content="{Binding fertig}" />
+                        
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />

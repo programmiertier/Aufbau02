@@ -6,16 +6,16 @@ namespace Bibliothek_Pizzalieferung
 {
     public class Lieferdienst
     {
-        private List<Pizza> Bestellungen { get; set; }
+        private List<Pizza> bestellungen = new List<Pizza>();
 
         public void bestellen(Pizza p)
         {
-            Bestellungen.Add(p);
+            bestellungen.Add(p);
         }
 
         public Pizza[] getAlle()
         {
-            return Bestellungen.ToArray();
+            return bestellungen.ToArray();
         }
     }
 }

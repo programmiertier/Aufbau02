@@ -22,5 +22,10 @@ namespace WPF_Pizzalieferung
         {
             InitializeComponent();
         }
+
+        private void OK_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
