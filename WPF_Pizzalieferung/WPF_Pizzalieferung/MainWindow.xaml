@@ -6,7 +6,10 @@
         xmlns:local="clr-namespace:WPF_Pizzalieferung"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
+    <Window.Resources>
+        <ResourceDictionary Source="Formatvorlage.xaml" />
+    </Window.Resources>
+    <Grid Background="{StaticResource styleVerlauf}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="60*" />
             <ColumnDefinition Width="40*" />

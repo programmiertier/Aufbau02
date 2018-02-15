@@ -9,13 +9,30 @@
             <RowDefinition Height="20*" />
             <RowDefinition Height="20*" />
         </Grid.RowDefinitions>
+        <!-- Festlegung von Eigenschaftswert -->
+        <!-- ein Farbverlauf fpür den Hintergrund -->
+
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="AliceBlue" Offset="0.25" />
+                <GradientStop Color="Blue" Offset="0.5"/>
+                <GradientStop Color="DarkBlue" Offset="0.75"/>
+                <GradientStop Color="Black" Offset="1.0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <ComboBox Name="cmbSize" Grid.Row="0" Margin="10,5,10,5" >
             <ComboBoxItem Content="Klein" />
             <ComboBoxItem Content="Mittel" />
             <ComboBoxItem Content="Groß" />
         </ComboBox>
         <CheckBox Name="chk1" Content="Salami Käse" Grid.Row="1"  HorizontalAlignment="Center"  Margin="30,20,10,50" >
-
+            <!-- ich definiere für diese Checkbox Eigenschaften -->
+            <CheckBox.Style>
+                <!-- es darf nur ein Kindelement bei Checkbox Stlye geben, wenn mehrere Eigenschaften -->
+                <Style>
+                    <Setter Property="CheckBox.Foreground" Value="Plum" />
+                </Style>
+            </CheckBox.Style>
         </CheckBox>
         <CheckBox Name="chk2" Content="Hawaii" Grid.Row="1" HorizontalAlignment="Center" Margin="109,42,117,10" Grid.RowSpan="2" />
 
