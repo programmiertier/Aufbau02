@@ -8,72 +8,48 @@ namespace ArbeitsPlatzPC_Console
 {
     public class ArbeitsplatzPC
     {
-        private String _macAdresse;
-        private char _netz;
+        private String macAdresse;
+        private char netz;
 
-        public string macAdresse
+        public ArbeitsplatzPC(string macAdresse, char netz)
         {
-            get
+            bool trigger = false;
+            trigger = setnetz(netz);
+            if (trigger == true)
             {
-                return _macAdresse;
+                this.netz = netz;
+                Console.WriteLine("Netzkennung okay");
             }
 
-            set
+            trigger = setMAC(macAdresse);
+            if (trigger == true)
             {
-                _macAdresse = value;
+                this.macAdresse = macAdresse;
+                Console.WriteLine("MAC-Adresse okay");
             }
         }
 
-        public char netz
+        public bool setnetz(char netz)
         {
-            get
+            bool trigger = false;
+            if (netz == 'A' || netz == 'B')
             {
-                return _netz;
+                trigger = true;
             }
-
-            set
-            {
-                _netz = value;
-            }
+            return trigger;
         }
 
-        ArbeitsplatzPC(String mac, char ne)
+        public bool setMAC(string macAdresse)
         {
-            this.macAdresse = mac;
-            this.netz = ne;
-        }
-
-        private bool checkHex(char hexChe)
-        {
-            switch (hexChe)
+            bool trigger = true;
+            if (checkMac(macAdresse) == false)
             {
-                case '0': return true;
-                case '1': return true;
-                case '2': return true;
-                case '3': return true;
-                case '4': return true;
-                case '5': return true;
-                case '6': return true;
-                case '7': return true;
-                case '8': return true;
-                case '9': return true;
-                case 'a':
-                case 'A': return true;
-                case 'b': 
-                case 'B': return true;
-                case 'c': 
-                case 'C': return true;
-                case 'd': 
-                case 'D': return true;
-                case 'e': 
-                case 'E': return true;
-                case 'f': 
-                case 'F': return true;
-                default: return false;
+                trigger = false;
             }
+            return trigger;
         }
 
-        public bool checkMac (string macAdresse)
+        private bool checkMac(string macAdresse)
         {
             bool trigger = true;
             int laenge = 0;
@@ -86,7 +62,7 @@ namespace ArbeitsPlatzPC_Console
             }
             else
             {
-                for (index = 2; index < 17; index = index +3)
+                for (index = 2; index < 17; index = index + 3)
                 {
                     if (macAdresse[index] == '-')
                     {
@@ -97,8 +73,50 @@ namespace ArbeitsPlatzPC_Console
                         trigger = false;
                     }
                 }
+
+                index = 0;
+                while (index < 17)
+                {
+                    if (macAdresse[index] != '-')
+                    {
+                        if (checkHex(macAdresse[index]) == false)
+                        {
+                            trigger = false;
+                        }
+                    }
+                    index = index + 1;
+                }
             }
             return trigger;
+        }
+
+        private bool checkHex(char z)
+        {
+            switch (z)
+            {
+                case '0': return true;
+                case '1': return true;
+                case '2': return true;
+                case '3': return true;
+                case '4': return true;
+                case '5': return true;
+                case '7': return true;
+                case '8': return true;
+                case '9': return true;
+                case 'a':
+                case 'A': return true;
+                case 'b':
+                case 'B': return true;
+                case 'c':
+                case 'C': return true;
+                case 'd':
+                case 'D': return true;
+                case 'e':
+                case 'E': return true;
+                case 'f':
+                case 'F': return true;
+                default: return false;
+            }
         }
     }
 }
